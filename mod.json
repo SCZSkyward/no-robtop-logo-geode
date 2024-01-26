@@ -1,9 +1,16 @@
 {
 	"geode": "2.0.0-beta.9",
 	"gd": "2.204",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"id": "skyward.no_robtop_logo",
 	"name": "No Robtop Logo",
 	"developer": "Skyward",
 	"description": "Removes the robtop logo from the main menu"
+	,"dependencies": [
+        {
+            "id": "geode.node-ids",
+            "version": ">=v1.1.4",
+            "importance": "required"
+        }
+    ]
 }
