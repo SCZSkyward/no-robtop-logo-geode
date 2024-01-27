@@ -27,13 +27,10 @@ class $modify(MenuLayer) {
         socialmediamenu->removeChildByID("robtop-logo-button");
 
         // Gets the twitch button child from the socialmediamenu
-        auto twitchbutton = socialmediamenu->getChildByID("");
-
-        // Sets the ID to "twitch-button"
-        twitchbutton->setID("twitch-button");
+        auto twitchbutton = socialmediamenu->getChildByID("twitch-button");
 
         // Gets the discord button child from the socialmediamenu
-        auto discordbutton = socialmediamenu->getChildByID("");
+        auto discordbutton = socialmediamenu->getChildByID("discord-button");
 
         // Sets the position to X: 88, Y: 30
         discordbutton->setPosition(88, 30);
