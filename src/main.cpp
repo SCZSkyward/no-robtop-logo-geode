@@ -32,17 +32,32 @@ class $modify(MenuLayer) {
         // Gets the discord button child from the socialmediamenu
         auto discordbutton = socialmediamenu->getChildByID("discord-button");
 
-        // Sets the position to X: 88, Y: 30
-        discordbutton->setPosition(88, 30);
+		if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
 
-        // Lowers the scale of the socialmediamenu
-        socialmediamenu->setScale(0.9);
+    		// Sets the position to X: 88, Y: 30
+    		discordbutton->setPosition(88, 30);
 
-        // Sets the position to X: 17, Y: -22
-        socialmediamenu->setPosition(17, -22);
+    		// Finally sets the twitch button to X: 59, Y: 30
+    		twitchbutton->setPosition(59, 30);
 
-        // Finally sets the twitch button to X: 59, Y: 30
-        twitchbutton->setPosition(59, 30);
-        return true;
-    };
-};     
+            // Lowers the scale of the socialmediamenu
+            socialmediamenu->setScale(0.9);
+
+            // Sets the position to X: 17, Y: -22
+            socialmediamenu->setPosition(17, -22);
+
+            return true;
+        } else {
+            twitchbutton->setPosition(88, 30);
+            
+			discordbutton->setPosition(59, 30);
+
+              // Lowers the scale of the socialmediamenu
+            socialmediamenu->setScale(0.9);
+
+            // Sets the position to X: 17, Y: -22
+            socialmediamenu->setPosition(17, -22);
+            return true;
+        }
+    }
+};

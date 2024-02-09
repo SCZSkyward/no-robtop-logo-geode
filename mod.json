@@ -4,11 +4,12 @@
 		"android": "2.205",
 		"win": "2.204"
 	},
-	"version": "v1.0.2",
+	"version": "v1.0.3",
 	"id": "skyward.no_robtop_logo",
 	"name": "No Robtop Logo",
 	"developer": "Skyward",
 	"description": "Removes the robtop logo from the main menu"
+	,"repository": "https://github.com/Deadcello/no-robtop-logo-geode"
 	,"dependencies": [
         {
             "id": "geode.node-ids",
@@ -16,4 +17,12 @@
             "importance": "required"
         }
     ]
+	,"settings": {
+		"switch-discord-twitch": {
+			"name": "Switch Discord and Twitch",
+			"description": "Switches the Discord and Twitch Buttons like in the GD Colon mockup",
+			"type": "bool",
+			"default": false
+		}
+	}
 }
