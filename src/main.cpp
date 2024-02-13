@@ -39,23 +39,23 @@ class $modify(MenuLayer) {
         auto facebookbutton = socialmediamenu->getChildByID("facebook-button");
 
 
-	     if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
-               if (Mod::get()->getSettingValue<bool>("put-twitch-logo-ontop"))
-                    // Sets the discord button to X: 99, Y: 68.6
-                    discordbutton->setPosition(99, 68.6);
+		if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
+             if (Mod::get()->getSettingValue<bool>("put-twitch-logo-ontop"))
+                // Sets the discord button to X: 99, Y: 68.6
+                discordbutton->setPosition(99, 68.6);
 
-                    // Lowers the scale of the socialmediamenu
-                    socialmediamenu->setScale(0.9);
+                // Lowers the scale of the socialmediamenu
+                socialmediamenu->setScale(0.9);
 
-                    // Sets the position to X: 9, Y: -15
-                    socialmediamenu->setPosition(9, -15);
-                    return true;
+                // Sets the position to X: 9, Y: -15
+                socialmediamenu->setPosition(9, -15);
+                return true;
 
-    	      // Sets the position to X: 128, Y: 39.6
-    	      discordbutton->setPosition(128, 39.6);
+    		// Sets the position to X: 128, Y: 39.6
+    		discordbutton->setPosition(128, 39.6);
 
-    	      // Finally sets the twitch button to X: 99, Y: 39.6
-    	      twitchbutton->setPosition(99, 39.6);
+    		// Finally sets the twitch button to X: 99, Y: 39.6
+    		twitchbutton->setPosition(99, 39.6);
 
             // Lowers the scale of the socialmediamenu
             socialmediamenu->setScale(0.9);
@@ -71,10 +71,8 @@ class $modify(MenuLayer) {
             
             return true;
         } else {
-	    // Sets the twitch button position to X: 128, Y: 39.6		
             twitchbutton->setPosition(128, 39.6);
-
-	    // Sets the discord button position to X: 99, Y: 39.6		
+            
 	    discordbutton->setPosition(99, 39.6);
 
             // Lowers the scale of the socialmediamenu
