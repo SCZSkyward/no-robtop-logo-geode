@@ -24,12 +24,5 @@
 			"type": "bool",
 			"default": false
 		}
-		,"put-twitch-logo-ontop": {
-			"name": "Put Twitch/Discord Button Ontop",
-			"description": "Makes the Twitch or Discord button ontop of the other logos"
-			,"type": "bool"
-			,"default": false
-
 		}
 	}
-}
