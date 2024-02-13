@@ -4,7 +4,7 @@
 		"android": "2.205",
 		"win": "2.204"
 	},
-	"version": "v1.0.3",
+	"version": "v1.0.4",
 	"id": "skyward.no_robtop_logo",
 	"name": "No Robtop Logo",
 	"developer": "Skyward",
@@ -23,6 +23,13 @@
 			"description": "Switches the Discord and Twitch Buttons like in the GD Colon mockup",
 			"type": "bool",
 			"default": false
+		}
+		,"put-twitch-logo-ontop": {
+			"name": "Put Twitch/Discord Button Ontop",
+			"description": "Makes the Twitch or Discord button ontop of the other logos"
+			,"type": "bool"
+			,"default": false
+
 		}
 	}
 }
