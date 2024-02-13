@@ -32,32 +32,68 @@ class $modify(MenuLayer) {
         // Gets the discord button child from the socialmediamenu
         auto discordbutton = socialmediamenu->getChildByID("discord-button");
 
-	if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
+        // Gets the youtube button child from the socialmediamenu
+        auto youtubebutton = socialmediamenu->getChildByID("youtube-button");
 
-    	    // Sets the position to X: 88, Y: 30
-    	    discordbutton->setPosition(88, 30);
+        // Gets the facebook button child from the socialmediamenu
+        auto facebookbutton = socialmediamenu->getChildByID("facebook-button");
 
-    	    // Finally sets the twitch button to X: 59, Y: 30
-    	    twitchbutton->setPosition(59, 30);
+
+	     if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
+               if (Mod::get()->getSettingValue<bool>("put-twitch-logo-ontop"))
+                    // Sets the discord button to X: 99, Y: 68.6
+                    discordbutton->setPosition(99, 68.6);
+
+                    // Lowers the scale of the socialmediamenu
+                    socialmediamenu->setScale(0.9);
+
+                    // Sets the position to X: 9, Y: -15
+                    socialmediamenu->setPosition(9, -15);
+                    return true;
+
+    	      // Sets the position to X: 128, Y: 39.6
+    	      discordbutton->setPosition(128, 39.6);
+
+    	      // Finally sets the twitch button to X: 99, Y: 39.6
+    	      twitchbutton->setPosition(99, 39.6);
 
             // Lowers the scale of the socialmediamenu
             socialmediamenu->setScale(0.9);
 
-            // Sets the position to X: 17, Y: -22
-            socialmediamenu->setPosition(17, -22);
+            // Sets the position to X: 9, Y: -15
+            socialmediamenu->setPosition(9, -15);
 
+            // Sets the Y position of the youtube button to 39.6
+            youtubebutton->setPositionY(39.6);
+
+            // Sets the Y position of the facebook button to 39.6
+            facebookbutton->setPositionY(39.6);
+            
             return true;
         } else {
-            twitchbutton->setPosition(88, 30);
-            
-	    discordbutton->setPosition(59, 30);
+	    // Sets the twitch button position to X: 128, Y: 39.6		
+            twitchbutton->setPosition(128, 39.6);
+
+	    // Sets the discord button position to X: 99, Y: 39.6		
+	    discordbutton->setPosition(99, 39.6);
 
             // Lowers the scale of the socialmediamenu
             socialmediamenu->setScale(0.9);
 
-            // Sets the position to X: 17, Y: -22
-            socialmediamenu->setPosition(17, -22);
-            return true;
+            // Sets the position to X: 9, Y: -15
+            socialmediamenu->setPosition(9, -15);
+
+            // Sets the Y position of the youtube button to 39.6
+            youtubebutton->setPositionY(39.6);
+
+             // Sets the Y position of the facebook button to 39.6
+            facebookbutton->setPositionY(39.6);
+            
+            
+         if (Mod::get()->getSettingValue<bool>("put-twitch-logo-ontop")) {
+            twitchbutton->setPosition(99, 68.6);
         }
-    }
+        return true;
+        }
+    }     
 };
