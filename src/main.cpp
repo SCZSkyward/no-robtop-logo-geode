@@ -23,8 +23,11 @@ class $modify(MenuLayer) {
         // Gets the social-media-menu child from the MenuLayer
         auto socialmediamenu = this->getChildByID("social-media-menu");
 
-        // Removes the child robtop-logo-button from the socialmediamenu
-        socialmediamenu->removeChildByID("robtop-logo-button");
+        // Gets the robtop button child from the socialmediamenu
+        auto robtoplogo = socialmediamenu->getChildByID("robtop-logo-button"); 
+        
+        // Makes the robtop logo invisible
+        robtoplogo->setVisible(false);
 
         // Gets the twitch button child from the socialmediamenu
         auto twitchbutton = socialmediamenu->getChildByID("twitch-button");
@@ -37,31 +40,32 @@ class $modify(MenuLayer) {
 
         // Gets the facebook button child from the socialmediamenu
         auto facebookbutton = socialmediamenu->getChildByID("facebook-button");
-	    
-	if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
-		
+
+
+		if (Mod::get()->getSettingValue<bool>("switch-discord-twitch")) {
+        
     		// Sets the position to X: 128, Y: 39.6
     		discordbutton->setPosition(128, 39.6);
 
     		// Finally sets the twitch button to X: 99, Y: 39.6
     		twitchbutton->setPosition(99, 39.6);
 
-            	// Lowers the scale of the socialmediamenu
-            	socialmediamenu->setScale(0.9);
+            // Lowers the scale of the socialmediamenu
+            socialmediamenu->setScale(0.9);
 
-           	// Sets the position to X: 9, Y: -15
-           	socialmediamenu->setPosition(9, -15);
+            // Sets the position to X: 9, Y: -15
+            socialmediamenu->setPosition(9, -15);
 
-            	// Sets the Y position of the youtube button to 39.6
-            	youtubebutton->setPositionY(39.6);
+            // Sets the Y position of the youtube button to 39.6
+            youtubebutton->setPositionY(39.6);
 
-            	// Sets the Y position of the facebook button to 39.6
-            	facebookbutton->setPositionY(39.6);
-            	return true;
+            // Sets the Y position of the facebook button to 39.6
+            facebookbutton->setPositionY(39.6);
+            return true;
         } else {
             twitchbutton->setPosition(128, 39.6);
             
-	    discordbutton->setPosition(99, 39.6);
+			discordbutton->setPosition(99, 39.6);
 
             // Lowers the scale of the socialmediamenu
             socialmediamenu->setScale(0.9);
