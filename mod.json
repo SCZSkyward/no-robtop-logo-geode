@@ -25,4 +25,15 @@
 			"default": false
 		}
 		}
+	,"tags": [
+		"Customization"
+		,"Interface"
+	]
+	,"incompatibilities": [
+		{
+		"id": "muhammadgames.bettermenu",
+		"version": "*",
+		"importance": "breaking"
+		}
+	]
 	}
