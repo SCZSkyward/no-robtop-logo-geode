@@ -19,8 +19,8 @@
     ]
 	,"settings": {
 		"switch-discord-twitch": {
-			"name": "Switch Discord and Twitch",
-			"description": "Switches the Discord and Twitch Buttons like in the GD Colon mockup",
+			"name": "Switch Discord & Twitch",
+			"description": "Switches the <cb>Discord</c> & <cp>Twitch</c> buttons like in a <co>GD Colon</c> mockup",
 			"type": "bool",
 			"default": false
 		}
