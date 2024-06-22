@@ -1,51 +1,55 @@
-- uses: geode-sdk/build-geode-mod@main
-  with:
-    # Which version of the SDK to use.
-    # Set to 'nightly' for latest commit, 'latest' for latest release
-    # Default: latest
-    sdk: ''
+name: Build Geode Mod
 
-    # Which CLI version to use.
-    # Default: latest
-    cli: ''
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
 
-    # Extra arguments passed to CMake when configuring. Not required.
-    configure-args: ''
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - name: Windows
+          os: windows-latest
 
-    # Extra arguments passed to CMake when building. Not required.
-    build-args: ''
+        - name: macOS
+          os: macos-latest
 
-    # Which build configuration to use.
-    # Default: Release
-    build-config: ''
+        - name: Android32
+          os: ubuntu-latest
+          target: Android32
 
-    # Whether to export PDB files for Windows builds. Not required.
-    # Default: false
-    export-pdb: ''
+        - name: Android64
+          os: ubuntu-latest
+          target: Android64
 
-    # Path to the project which to build. Defaults to current directory.
-    path: ''
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
 
-    # Set this to true if you plan on merging .geode files later. See the README for more info.
-    # Default: false
-    combine: ''
+    steps:
+      - uses: actions/checkout@v4
 
-    # Geode target to build for. Can be either "Win64", "MacOS", "Android32" or "Android64".
-    # Defaults to what is appropriate for the current platform, so:
-    # Defaults to Win64 on windows runners
-    # Defaults to MacOS on macOS runners
-    # Defaults to Android64 on linux runners
-    target: ''
+      - name: Build the mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          bindings: geode-sdk/bindings
+          bindings-ref: main
+          combine: true
+          target: ${{ matrix.config.target }}
 
-    # What repository to use for bindings. Must be in the format "user/repo". Not required.
-    bindings: ''
+  package:
+    name: Package builds
+    runs-on: ubuntu-latest
+    needs: ['build']
 
-    # Which commit/branch to use for bindings. Defaults to latest commit in main branch. Not required.
-    bindings-ref: ''
+    steps:
+      - uses: geode-sdk/build-geode-mod/combine@main
+        id: build
 
-    # The android min SDK version to target. Defaults to 23. Not required.
-    android-min-sdk: ''
-
-    # Whether to use Link Time Optimization, improving build size at the cost of build time.
-    # Default: true
-    use-lto: ''
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Build Output
+          path: ${{ steps.build.outputs.build-output }}
