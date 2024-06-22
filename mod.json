@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-	"geode": "2.0.0-beta.26",
-=======
 	"geode": "3.0.0-beta.1",
->>>>>>> Stashed changes
 	"gd": {
 		"android": "2.205",
 		"win": "2.204"
